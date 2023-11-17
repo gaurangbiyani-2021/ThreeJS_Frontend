@@ -10,6 +10,8 @@ a{
 }
 body , html{
     overflow-x: hidden;
+    overflow-y: hidden;
+
    
 }
 @font-face {
@@ -22,6 +24,11 @@ body , html{
 }
 h1{
   color: antiquewhite;
+}
+
+.news{
+  color:red;
+  z-index: 200;
 }
 .landing{
   height: 115vh;
@@ -41,7 +48,9 @@ h1{
   
 }
 .heading img{
-  width: 50vw;
+  width: 500px;
+  position: relative;
+  left:5%;
 }
 @media only screen and (max-width: 600px) {
    .heading img{

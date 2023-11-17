@@ -115,7 +115,7 @@ window.addEventListener('resize', () => {
 // spinning animation
 const animate = () => {
     requestAnimationFrame(animate);
-    // starMesh.rotation.y -= 0.00092  ;
+    starMesh.rotation.y -= 0.00098  ;
     earthMesh.rotation.y -= 0.0015;
     cloudMesh.rotation.y -= 0.002;
     // galaxyMesh.rotation.y-=0.005;
@@ -137,150 +137,12 @@ animate();
 
 function movecamera(){
     const t = document.body.getBoundingClientRect().top;
-    // starMesh.rotation.y -= 0.009;
+    starMesh.rotation.y -= 0.009;
     earthMesh.rotation.y -= 0.005;
     cloudMesh.rotation.y -= 0.009;
-
-
 
 }
 document.body.onscroll = movecamera;
 movecamera();
 
-
-const bottomNav = document.querySelector('.nav-menu');
-const hamburgerMenu = document.querySelector('#menuToggle');
-const menuList = document.querySelector('#menu');
-let lastScrollPosition = window.pageYOffset;
-    // Set initial opacity of hamburger menu to 0
-    hamburgerMenu.style.opacity = 0;
-
-    // After 2 seconds, set opacity of hamburger menu to 1
-    setTimeout(function() {
-      hamburgerMenu.style.opacity = 1;
-    }, 3000);
-
-window.addEventListener('scroll', function() {
-  const currentScrollPosition = window.pageYOffset;
-
-  if (lastScrollPosition > currentScrollPosition) {
-    // user is scrolling up, so show the navigation bar
-    bottomNav.classList.remove('slide-up');
-    bottomNav.style.opacity = 1;
-    hamburgerMenu.classList.remove('visible');
-  } else {
-    // user is scrolling down, so hide the navigation bar
-    bottomNav.classList.add('slide-up');
-    bottomNav.style.opacity = 0.0; // decrease the opacity here
-    if (currentScrollPosition + window.innerHeight >= document.body.scrollHeight) {
-      // user has scrolled to the bottom, so show the hamburger menu
-      hamburgerMenu.classList.add('visible');
-      menuList.innerHTML = bottomNav.innerHTML; // copy the
-    }
-  }
-})
-
-$(window).on("scroll", function () {
-  $(".landing").css("bottom", $(window).scrollTop() * -1);
-  
-});
-
-
-/*timeline*/
-
-
-
-
-
-var countdown = new Date("Apr 7 , 2023 00:00:00").getTime();
-var x = setInterval(() => {
-    var current = new Date().getTime();
-    var distance = countdown-current;
-    var days = Math.floor(distance / (1000*60*60*24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    document.getElementById("ch").innerHTML = (days < 10) ? '0' + days.toString() : days.toString();
-    document.getElementById("a").innerHTML = (days < 10) ? '0' + days.toString() : days.toString();
-    document.getElementById("b").innerHTML = (hours < 10) ? '0' + hours.toString() : hours.toString();
-    document.getElementById("c").innerHTML = (minutes < 10) ? '0' + minutes.toString() : minutes.toString();
-    document.getElementById("d").innerHTML = (seconds < 10) ? '0' + seconds.toString() : seconds.toString();
-}, 1000);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$(document).on('scroll' , function(){
-    
-  $('.heading').css("transition-duration" ,   "0.6s");
-  $('.heading').css("top" , Math.max(58 - 0.4*scrollY  , 18) + "%");
-  $('.leftbox').css("transition-duration" ,   "0.6s");
-  $('.leftbox').css("left" , Math.min(-23 + 6*scrollY , 7 )  + "%");
-  $('.rightbox').css("transition-duration" ,   "0.6s");
-  $('.rightbox').css("left" , Math.max(120 - 6*scrollY ,65)  + "%");
-
-  $('.image').css("transition-duration" ,   "0.6s");
-  $('.image').css("left" , Math.max(120 - 6*scrollY ,71)  + "%");
-})
-
-function changeImg(x , text){
-  if(x == 1){
-      document.getElementById("demo").innerHTML = "NISHANT SINGH";
-      
-  }
-  if(x == 2){
-      document.getElementById("demo").innerHTML = "DAY1";   
-  }
-}
-
-function changeImg2(x , text){
-  if(x == 3){
-      document.getElementById("demo1").innerHTML = "NISHANT SINGH2";
-  }
-  if(x == 4){
-      document.getElementById("demo1").innerHTML = "DAY2";   
-  }
-}
-
-function changeImg3(x , text){
-  if(x == 5){
-      document.getElementById("demo2").innerHTML = "NISHANT SINGH3";
-  }
-  if(x == 6){
-      document.getElementById("demo2").innerHTML = "DAY3";   
-  }
-}
-
-const root = document.documentElement;
-const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
-const marqueeContent = document.querySelector("ul.marquee-content");
-
-root.style.setProperty("--marquee-elements", marqueeContent.children.length);
-
-for(let i=0; i<marqueeElementsDisplayed; i++) {
-marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
-}
-
-
-
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-}
 
